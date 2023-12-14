@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://agustinyabo.github.io/sitemap.xml
+Sitemap: https://agustinyabo.github.io/website/sitemap.xml
