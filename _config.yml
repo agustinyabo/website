@@ -272,7 +272,7 @@ display_categories: ['blockquotes'] # these categories will be displayed on the 
 scholar:
 
   last_name: [Yabo]
-  first_name: [Agustin G., Agustín G., Agustin, Agustín, A.]
+  first_name: [Agustin G., Agustín G., Agustin, Agustín, A., A. G.]
 
   style: apa
   locale: en
