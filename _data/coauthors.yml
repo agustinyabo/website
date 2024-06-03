@@ -1,3 +1,7 @@
 "JL":
-  - firstname: ["Jean-Luc Gouzé", "Gouzé, J.L.", "Gouzé, J.-L."]
+  - firstname: ["Jean-Luc", "J.L.", "J.-L."]
     url: https://team.inria.fr/macbes/
+    
+"JL":
+  - firstname: ["Jean-Baptiste", "J.B.", "J.-B."]
+    url: https://caillau.perso.math.cnrs.fr/
