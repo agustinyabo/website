@@ -85,7 +85,7 @@ fetch("https://api.archives-ouvertes.fr/search/hal/?wt=json&rows=1000&sort=publi
         let journal = "Preprint";
         if (rawJournal) {
           const journalParts = rawJournal.split(",");
-          const firstChunk = journalParts[0]?.trim();
+          const firstChunk = journalParts[0] ? journalParts[0].trim() : "";
           if (firstChunk && !/^\d{4}$/.test(firstChunk)) {
             journal = firstChunk;
           }
