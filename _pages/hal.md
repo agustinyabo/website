@@ -77,9 +77,9 @@ fetch("https://api.archives-ouvertes.fr/search/hal/?wt=json&rows=1000&sort=publi
         // Parse publication label
         let label = pub.label_s;
         const parts = label.split(". ");
-        const authorsRaw = parts[0]?.trim() || "";
-        const title = parts[1]?.trim() || label;
-        const rawJournal = parts[2]?.trim() || "";
+		const authorsRaw = parts[0] ? parts[0].trim() : "";
+		const title = parts[1] ? parts[1].trim() : label;
+		const rawJournal = parts[2] ? parts[2].trim() : "";
 
         // Journal detection or fallback to "Preprint"
         let journal = "Preprint";
