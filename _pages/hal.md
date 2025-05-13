@@ -52,36 +52,32 @@ fetch("https://api.archives-ouvertes.fr/search/hal/?wt=json&rows=1000&sort=publi
         row.className = "row";
         row.style.marginBottom = "2em";
 
-        // <hr> inside the row, spans entire width
+        // Full-width horizontal line before first publication of the year
         if (index === 0) {
+          const hrRow = document.createElement("div");
+          hrRow.className = "row";
           const hrCol = document.createElement("div");
           hrCol.className = "col-12";
           hrCol.innerHTML = "<hr>";
-          row.appendChild(hrCol);
+          container.appendChild(hrRow);
+          hrRow.appendChild(hrCol);
         }
 
-        // Left column (indentation)
+        // Left column (year)
         const leftCol = document.createElement("div");
-        leftCol.className = "col-sm-1 abbr";
-        leftCol.innerHTML = "&nbsp;";
+        leftCol.className = "col-sm-2 text-start";
+        leftCol.innerHTML = index === 0 ? `<h2 class="year">${year}</h2>` : "&nbsp;";
 
-        // Center column (publication content)
-        const centerCol = document.createElement("div");
-        centerCol.className = "col-sm-9";
-
-        // Right column (year)
+        // Right column (publication content)
         const rightCol = document.createElement("div");
-        rightCol.className = "col-sm-1 text-end";
-        rightCol.innerHTML = index === 0 ? `<h2 class="year">${year}</h2>` : "&nbsp;";
+        rightCol.className = "col-sm-10";
 
-        // Parse publication label
         let label = pub.label_s;
         const parts = label.split(". ");
-		const authorsRaw = parts[0] ? parts[0].trim() : "";
-		const title = parts[1] ? parts[1].trim() : label;
-		const rawJournal = parts[2] ? parts[2].trim() : "";
+        const authorsRaw = parts[0] ? parts[0].trim() : "";
+        const title = parts[1] ? parts[1].trim() : label;
+        const rawJournal = parts[2] ? parts[2].trim() : "";
 
-        // Journal detection or fallback to "Preprint"
         let journal = "Preprint";
         if (rawJournal) {
           const journalParts = rawJournal.split(",");
@@ -91,7 +87,6 @@ fetch("https://api.archives-ouvertes.fr/search/hal/?wt=json&rows=1000&sort=publi
           }
         }
 
-        // Replace name variations
         const formattedAuthors = authorsRaw
           .replace(/Agustín Gabriel Yabo/g, "Agustín G. Yabo")
           .replace(/Agustín G Yabo/g, "Agustín G. Yabo")
@@ -100,7 +95,7 @@ fetch("https://api.archives-ouvertes.fr/search/hal/?wt=json&rows=1000&sort=publi
 
         const pdfLink = `${pub.uri_s}/document`;
 
-        centerCol.innerHTML = `
+        rightCol.innerHTML = `
           <div class="entry">
             <div class="title" style="font-weight: bold;">${title}</div>
             <div class="author" style="margin-top: 0.3em;">${formattedAuthors}</div>
@@ -115,7 +110,6 @@ fetch("https://api.archives-ouvertes.fr/search/hal/?wt=json&rows=1000&sort=publi
         `;
 
         row.appendChild(leftCol);
-        row.appendChild(centerCol);
         row.appendChild(rightCol);
         container.appendChild(row);
       });
