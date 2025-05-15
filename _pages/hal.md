@@ -34,7 +34,8 @@ function parseTEI(xmlText) {
   const entries = Array.from(xml.querySelectorAll("biblFull"));
 
   return entries.map(entry => {
-    const title = (entry.querySelector("titleStmt > title") || {}).textContent?.trim() || "";
+    const titleNode = entry.querySelector("titleStmt > title");
+    const title = titleNode ? titleNode.textContent.trim() : "";
 
     const rawAuthors = Array.from(entry.querySelectorAll("author")).map(a => {
       const pers = a.querySelector("persName");
@@ -51,7 +52,8 @@ function parseTEI(xmlText) {
       "Book sections": "Book sections",
       "Books": "Books"
     };
-    const rawType = (entry.querySelector("classCode[scheme='halTypology']") || {}).textContent?.trim() || "Other";
+    const rawTypeNode = entry.querySelector("classCode[scheme='halTypology']");
+    const rawType = rawTypeNode ? rawTypeNode.textContent.trim() : "Other";
     const type = typeMap[rawType] || "Other";
 
     let year = "";
@@ -61,21 +63,28 @@ function parseTEI(xmlText) {
       year = when ? when.slice(0, 4) : date.textContent.trim().slice(0, 4);
     }
 
-    const doi = (entry.querySelector("idno[type='doi']") || {}).textContent?.trim() || "";
+    const doiNode = entry.querySelector("idno[type='doi']");
+    const doi = doiNode ? doiNode.textContent.trim() : "";
 
     let journal = "";
     if (type === "Conference papers") {
-      const confName = (entry.querySelector("meeting > title") || {}).textContent?.trim() || "Conference";
-      const confYear = (entry.querySelector("meeting > date[type='start']") || {}).textContent?.trim()?.slice(0, 4);
-      const city = (entry.querySelector("meeting > settlement") || {}).textContent?.trim();
-      const country = (entry.querySelector("meeting > country") || {}).textContent?.trim();
-      const location = [confName, confYear, [city, country].filter(Boolean).join(", ")].filter(Boolean).join(", ");
-      journal = location;
+      const confNameNode = entry.querySelector("meeting > title");
+      const confName = confNameNode ? confNameNode.textContent.trim() : "Conference";
+      const confYearNode = entry.querySelector("meeting > date[type='start']");
+      const confYear = confYearNode ? confYearNode.textContent.trim().slice(0, 4) : "";
+      const cityNode = entry.querySelector("meeting > settlement");
+      const city = cityNode ? cityNode.textContent.trim() : "";
+      const countryNode = entry.querySelector("meeting > country");
+      const country = countryNode ? countryNode.textContent.trim() : "";
+      journal = [confName, confYear, [city, country].filter(Boolean).join(", ")].filter(Boolean).join(", ");
       year = confYear || year;
     } else {
-      const publisher = (entry.querySelector("monogr > imprint > publisher") || entry.querySelector("publicationStmt > publisher") || {}).textContent?.trim() || "";
-      const genre = (entry.querySelector("notesStmt > note[type='genre']") || {}).textContent?.toLowerCase() || "";
-      const monogrTitle = (entry.querySelector("monogr > title") || {}).textContent?.trim() || "";
+      const publisherNode = entry.querySelector("monogr > imprint > publisher") || entry.querySelector("publicationStmt > publisher");
+      const publisher = publisherNode ? publisherNode.textContent.trim() : "";
+      const genreNode = entry.querySelector("notesStmt > note[type='genre']");
+      const genre = genreNode ? genreNode.textContent.toLowerCase() : "";
+      const monogrTitleNode = entry.querySelector("monogr > title");
+      const monogrTitle = monogrTitleNode ? monogrTitleNode.textContent.trim() : "";
 
       if (type === "Books") {
         journal = publisher || "Book";
@@ -88,9 +97,12 @@ function parseTEI(xmlText) {
       }
     }
 
-    const halId = (entry.querySelector("idno[type='halId']") || {}).textContent?.trim() || "";
-    const uri = (entry.querySelector("idno[type='halUri']") || {}).textContent?.trim() || `https://hal.science/${halId}`;
-    const pdf = (entry.querySelector("ref[type='file'][subtype='author']") || {}).getAttribute?.("target") || `${uri}/document`;
+    const halIdNode = entry.querySelector("idno[type='halId']");
+    const halId = halIdNode ? halIdNode.textContent.trim() : "";
+    const uriNode = entry.querySelector("idno[type='halUri']");
+    const uri = uriNode ? uriNode.textContent.trim() : `https://hal.science/${halId}`;
+    const pdfNode = entry.querySelector("ref[type='file'][subtype='author']");
+    const pdf = pdfNode ? pdfNode.getAttribute("target") : `${uri}/document`;
 
     return { title, authors, journal, year, uri, pdf, type, doi };
   });
@@ -110,7 +122,6 @@ fetch("https://api.archives-ouvertes.fr/search/hal/?wt=xml-tei&rows=1000&sort=pu
   .then(xmlText => {
     const parsed = parseTEI(xmlText);
     const grouped = groupByType(parsed);
-
     const desiredOrder = ["Preprints", "Journal articles", "Conference papers", "Books", "Book sections", "Other"];
     const types = Object.keys(grouped).sort((a, b) => desiredOrder.indexOf(a) - desiredOrder.indexOf(b));
 
