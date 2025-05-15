@@ -34,7 +34,7 @@ function parseTEI(xmlText) {
   const entries = Array.from(xml.querySelectorAll("biblFull"));
 
   return entries.map(entry => {
-    const title = entry.querySelector("titleStmt > title")?.textContent.trim() || "";
+    const title = (entry.querySelector("titleStmt > title") || {}).textContent?.trim() || "";
 
     const rawAuthors = Array.from(entry.querySelectorAll("author")).map(a => {
       const pers = a.querySelector("persName");
@@ -44,8 +44,6 @@ function parseTEI(xmlText) {
     });
     const authors = deduplicateAuthors(rawAuthors).join(", ");
 
-    const rawType = entry.querySelector("classCode[scheme='halTypology']")?.textContent.trim() || "Other";
-
     const typeMap = {
       "Journal articles": "Journal articles",
       "Preprints, Working Papers, ...": "Preprints",
@@ -53,35 +51,31 @@ function parseTEI(xmlText) {
       "Book sections": "Book sections",
       "Books": "Books"
     };
+    const rawType = (entry.querySelector("classCode[scheme='halTypology']") || {}).textContent?.trim() || "Other";
     const type = typeMap[rawType] || "Other";
 
-    // year
     let year = "";
     const date = entry.querySelector("date[type='datePub']") || entry.querySelector("date");
     if (date) {
-      year = date.getAttribute("when")?.slice(0, 4) || date.textContent.trim().slice(0, 4);
+      const when = date.getAttribute("when");
+      year = when ? when.slice(0, 4) : date.textContent.trim().slice(0, 4);
     }
 
-    const doi = entry.querySelector("idno[type='doi']")?.textContent.trim() || "";
+    const doi = (entry.querySelector("idno[type='doi']") || {}).textContent?.trim() || "";
 
     let journal = "";
     if (type === "Conference papers") {
-      const confName = entry.querySelector("meeting > title")?.textContent.trim() || "Conference";
-      const confYear = entry.querySelector("meeting > date[type='start']")?.textContent.trim()?.slice(0, 4);
-      const city = entry.querySelector("meeting > settlement")?.textContent.trim();
-      const country = entry.querySelector("meeting > country")?.textContent.trim();
+      const confName = (entry.querySelector("meeting > title") || {}).textContent?.trim() || "Conference";
+      const confYear = (entry.querySelector("meeting > date[type='start']") || {}).textContent?.trim()?.slice(0, 4);
+      const city = (entry.querySelector("meeting > settlement") || {}).textContent?.trim();
+      const country = (entry.querySelector("meeting > country") || {}).textContent?.trim();
       const location = [confName, confYear, [city, country].filter(Boolean).join(", ")].filter(Boolean).join(", ");
       journal = location;
       year = confYear || year;
     } else {
-      // extract publisher robustly
-      const publisher =
-        entry.querySelector("monogr > imprint > publisher")?.textContent.trim() ||
-        entry.querySelector("publicationStmt > publisher")?.textContent.trim() ||
-        "";
-
-      const genre = entry.querySelector("notesStmt > note[type='genre']")?.textContent.toLowerCase() || "";
-      const monogrTitle = entry.querySelector("monogr > title")?.textContent.trim() || "";
+      const publisher = (entry.querySelector("monogr > imprint > publisher") || entry.querySelector("publicationStmt > publisher") || {}).textContent?.trim() || "";
+      const genre = (entry.querySelector("notesStmt > note[type='genre']") || {}).textContent?.toLowerCase() || "";
+      const monogrTitle = (entry.querySelector("monogr > title") || {}).textContent?.trim() || "";
 
       if (type === "Books") {
         journal = publisher || "Book";
@@ -94,9 +88,9 @@ function parseTEI(xmlText) {
       }
     }
 
-    const halId = entry.querySelector("idno[type='halId']")?.textContent.trim() || "";
-    const uri = entry.querySelector("idno[type='halUri']")?.textContent.trim() || `https://hal.science/${halId}`;
-    const pdf = entry.querySelector("ref[type='file'][subtype='author']")?.getAttribute("target") || `${uri}/document`;
+    const halId = (entry.querySelector("idno[type='halId']") || {}).textContent?.trim() || "";
+    const uri = (entry.querySelector("idno[type='halUri']") || {}).textContent?.trim() || `https://hal.science/${halId}`;
+    const pdf = (entry.querySelector("ref[type='file'][subtype='author']") || {}).getAttribute?.("target") || `${uri}/document`;
 
     return { title, authors, journal, year, uri, pdf, type, doi };
   });
