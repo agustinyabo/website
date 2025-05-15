@@ -10,6 +10,11 @@ nav_order: 2
 <div class="publications" id="hal-publications-container">Loading publications...</div>
 
 <script>
+function cleanName(text) {
+  return text
+    .replace(/Agustín G. Yabo/g, "<u>Agustín G. Yabo</u>");
+}
+
 function deduplicateAuthors(authors) {
   const seen = new Set();
   return authors.filter(name => {
@@ -33,7 +38,7 @@ function parseTEI(xmlText) {
       const pers = a.querySelector("persName");
       if (!pers) return "";
       const name = Array.from(pers.children).map(c => c.textContent.trim()).join(" ");
-      return name.trim();
+      return cleanName(name.trim());
     });
     const authors = deduplicateAuthors(rawAuthors).join(", ");
 
