@@ -7,7 +7,7 @@ nav: true
 nav_order: 2
 ---
 
-<div class="publications" id="hal-publications-container">Loading publications…</div>
+<div class="publications" id="hal-publications-container">Loading publications...</div>
 
 <script>
 function cleanName(text) {
