@@ -12,6 +12,9 @@ nav_order: 2
 <script>
 function cleanName(text) {
   return text
+    .replace(/Agustín Gabriel Yabo/g, "Agustín G. Yabo")
+    .replace(/Agustín G Yabo/g, "Agustín G. Yabo")
+    .replace(/Agustín G\.? Yabo/g, "Agustín G. Yabo")
     .replace(/Agustín G. Yabo/g, "<u>Agustín G. Yabo</u>");
 }
 
@@ -40,46 +43,66 @@ function parseTEI(xmlText) {
       const name = Array.from(pers.children).map(c => c.textContent.trim()).join(" ");
       return cleanName(name.trim());
     });
-    const authors = deduplicateAuthors(rawAuthors).join(", ");
+    let authors = deduplicateAuthors(rawAuthors).join(", ");
 
     const typeMap = {
       "Journal articles": "Journal articles",
       "Preprints, Working Papers, ...": "Preprints",
       "Conference papers": "Conference papers",
       "Book sections": "Book sections",
-      "Books": "Books"
+      "Books": "Books",
+      "Theses": "PhD Thesis"
     };
+
     const rawTypeNode = entry.querySelector("classCode[scheme='halTypology']");
     const rawType = rawTypeNode ? rawTypeNode.textContent.trim() : "Other";
-    const type = typeMap[rawType] || "Other";
-
-    let year = "";
-    const date = entry.querySelector("date[type='datePub']") || entry.querySelector("date");
-    if (date) {
-      const when = date.getAttribute("when");
-      year = when ? when.slice(0, 4) : date.textContent.trim().slice(0, 4);
-    }
+    const rawTypeN = rawTypeNode ? rawTypeNode.getAttribute("n") : "";
 
     const doiNode = entry.querySelector("idno[type='doi']");
     const doi = doiNode ? doiNode.textContent.trim() : "";
 
-    let journal = "";
+    let type = typeMap[rawType] || "Other";
+    if (rawTypeN === "THESE") {
+      type = "PhD Thesis";
+    }
     if (type === "Conference papers") {
+      type = doi ? "Conference Paper (with proceedings)" : "Talk (without proceedings)";
+    }
+
+    let year = "";
+    const datePub = entry.querySelector("date[type='datePub']") || entry.querySelector("date");
+    if (datePub) {
+      const when = datePub.getAttribute("when");
+      year = when ? when.slice(0, 4) : datePub.textContent.trim().slice(0, 4);
+    }
+
+    let journal = "";
+    if (
+      rawType === "Conference papers" ||
+      type.startsWith("Conference") ||
+      type.startsWith("Talk")
+    ) {
       const confNameNode = entry.querySelector("meeting > title");
       const confName = confNameNode ? confNameNode.textContent.trim() : "Conference";
-      const confYearNode = entry.querySelector("meeting > date[type='start']");
-      const confYear = confYearNode ? confYearNode.textContent.trim().slice(0, 4) : "";
+      const startNode = entry.querySelector("meeting > date[type='start']");
+      const endNode = entry.querySelector("meeting > date[type='end']");
+      const startDate = startNode ? startNode.textContent.trim() : "";
+      const endDate = endNode ? endNode.textContent.trim() : "";
       const cityNode = entry.querySelector("meeting > settlement");
       const city = cityNode ? cityNode.textContent.trim() : "";
       const countryNode = entry.querySelector("meeting > country");
       const country = countryNode ? countryNode.textContent.trim() : "";
-      journal = [confName, confYear, [city, country].filter(Boolean).join(", ")].filter(Boolean).join(", ");
-      year = confYear || year;
+      journal = [confName, [city, country].filter(Boolean).join(", ")].filter(Boolean).join(", ");
+      year = startDate ? startDate.slice(0, 4) : year;
+    } else if (type === "PhD Thesis") {
+      const institutionNode = entry.querySelector("monogr > authority[type='institution']");
+      if (institutionNode) {
+        const university = institutionNode.textContent.trim();
+        journal = university;
+      }
     } else {
       const publisherNode = entry.querySelector("monogr > imprint > publisher") || entry.querySelector("publicationStmt > publisher");
       const publisher = publisherNode ? publisherNode.textContent.trim() : "";
-      const genreNode = entry.querySelector("notesStmt > note[type='genre']");
-      const genre = genreNode ? genreNode.textContent.toLowerCase() : "";
       const monogrTitleNode = entry.querySelector("monogr > title");
       const monogrTitle = monogrTitleNode ? monogrTitleNode.textContent.trim() : "";
 
@@ -93,6 +116,8 @@ function parseTEI(xmlText) {
         journal = publisher;
       }
     }
+
+    if (journal.endsWith(" ")) journal = journal.trimEnd();
 
     const halIdNode = entry.querySelector("idno[type='halId']");
     const halId = halIdNode ? halIdNode.textContent.trim() : "";
@@ -119,7 +144,16 @@ fetch("https://api.archives-ouvertes.fr/search/hal/?wt=xml-tei&rows=1000&sort=pu
   .then(xmlText => {
     const parsed = parseTEI(xmlText);
     const grouped = groupByType(parsed);
-    const desiredOrder = ["Preprints", "Journal articles", "Conference papers", "Books", "Book sections", "Other"];
+    const desiredOrder = [
+      "Preprints",
+      "Journal articles",
+      "Conference Paper (with proceedings)",
+      "Talk (without proceedings)",
+      "Books",
+      "Book sections",
+      "PhD Thesis",
+      "Other"
+    ];
     const types = Object.keys(grouped).sort((a, b) => desiredOrder.indexOf(a) - desiredOrder.indexOf(b));
 
     types.forEach(type => {
@@ -151,19 +185,9 @@ fetch("https://api.archives-ouvertes.fr/search/hal/?wt=xml-tei&rows=1000&sort=pu
           <div class="entry">
             <div class="title" style="font-weight: bold;">${e.title}</div>
             <div class="author" style="margin-top: 0.3em;">${e.authors}</div>
-            ${e.type === "Books" ? `
+            ${(e.journal || e.year) ? `
               <div class="periodical" style="margin-top: 0.3em;">
-                ${e.journal || ""}${e.journal && e.year ? ", " : ""}${e.year || ""}
-              </div>
-            ` : e.type === "Book sections" ? `
-              <div class="periodical" style="margin-top: 0.3em;">
-                ${e.journal ? `<span style="font-style: italic;">${e.journal}</span>` : ""}
-                ${e.year ? `, ${e.year}` : ""}
-              </div>
-            ` : (e.journal || e.year) ? `
-              <div class="periodical" style="margin-top: 0.3em;">
-                ${e.journal ? `<span style="font-style: italic;">${e.journal}</span>` : ""}
-                ${(e.year && e.type !== "Conference papers") ? (e.journal ? ", " : "") + e.year : ""}
+                ${e.journal ? `<span style="font-style: italic;">${e.journal}</span>${e.year ? ", " + e.year : ""}` : (e.year || "")}
               </div>
             ` : ""}
             ${e.doi ? `<div class="doi" style="margin-top: 0.3em;"><a href="https://doi.org/${e.doi}" target="_blank">https://doi.org/${e.doi}</a></div>` : ""}
