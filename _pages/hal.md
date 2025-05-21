@@ -65,8 +65,10 @@ function parseTEI(xmlText) {
     if (rawTypeN === "THESE") {
       type = "PhD Thesis";
     }
-    if (type === "Conference papers") {
-      type = doi ? "Conference Paper (with proceedings)" : "Talk (without proceedings)";
+    if (rawType === "Conference papers") {
+      const procNote = entry.querySelector("note[type='proceedings']");
+      const inProceedings = procNote && procNote.getAttribute("n") === "1";
+      type = inProceedings ? "Conference Paper (with proceedings)" : "Talk (without proceedings)";
     }
 
     let year = "";
