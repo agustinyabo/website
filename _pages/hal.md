@@ -29,43 +29,50 @@ function deduplicateAuthors(authors) {
 }
 
 function parseTEI(xmlText) {
-  const parser = new DOMParser();
-  const xml = parser.parseFromString(xmlText, "text/xml");
-  const NS = "http://www.tei-c.org/ns/1.0";
-  const entries = Array.from(xml.getElementsByTagNameNS(NS, "biblFull"));
+  var parser = new DOMParser();
+  var xml = parser.parseFromString(xmlText, "text/xml");
+  var NS = "http://www.tei-c.org/ns/1.0";
+  var entries = Array.prototype.slice.call(xml.getElementsByTagNameNS(NS, "biblFull"));
 
-  return entries.map(entry => {
-    const titleNode = entry.getElementsByTagNameNS(NS, "title")[0];
-    const title = titleNode ? titleNode.textContent.trim() : "";
+  return entries.map(function(entry) {
+    var titleNode = entry.getElementsByTagNameNS(NS, "title")[0];
+    var title = titleNode ? titleNode.textContent.trim() : "";
 
-    const rawAuthors = Array.from(entry.getElementsByTagNameNS(NS, "author")).map(a => {
-      const pers = a.getElementsByTagNameNS(NS, "persName")[0];
+    var rawAuthors = Array.prototype.slice.call(entry.getElementsByTagNameNS(NS, "author")).map(function(a) {
+      var pers = a.getElementsByTagNameNS(NS, "persName")[0];
       if (!pers) return "";
-      const name = Array.from(pers.children).map(c => c.textContent.trim()).join(" ");
+      var name = Array.prototype.slice.call(pers.children).map(function(c) {
+        return c.textContent.trim();
+      }).join(" ");
       return cleanName(name.trim());
     });
-    const authors = deduplicateAuthors(rawAuthors).join(", ");
+    var authors = deduplicateAuthors(rawAuthors).join(", ");
 
-    const idnos = Array.from(entry.getElementsByTagNameNS(NS, "idno"));
-    const getIdno = type => {
-      const node = idnos.find(el => el.getAttribute("type") === type);
-      return node ? node.textContent.trim() : "";
-    };
+    var idnos = Array.prototype.slice.call(entry.getElementsByTagNameNS(NS, "idno"));
+    function getIdno(type) {
+      for (var i = 0; i < idnos.length; i++) {
+        if (idnos[i].getAttribute("type") === type) {
+          return idnos[i].textContent.trim();
+        }
+      }
+      return "";
+    }
 
-    const doi = getIdno("doi");
-    const seeAlsoNode = entry.querySelector('ref[type="seeAlso"]');
-	const seeAlso = seeAlsoNode ? seeAlsoNode.getAttribute("target") : "";
-    const halId = getIdno("halId");
-    const uri = getIdno("halUri") || `https://hal.science/${halId}`;
+    var doi = getIdno("doi");
+    var halId = getIdno("halId");
+    var uri = getIdno("halUri") || ("https://hal.science/" + halId);
 
-    const pdfNode = entry.querySelector("ref[type='file'][subtype='author']");
-    const pdf = pdfNode ? pdfNode.getAttribute("target") : `${uri}/document`;
+    var seeAlsoNode = entry.querySelector('ref[type="seeAlso"]');
+    var seeAlso = seeAlsoNode ? seeAlsoNode.getAttribute("target") : "";
 
-    const rawTypeNode = entry.querySelector("classCode[scheme='halTypology']");
-    const rawType = rawTypeNode ? rawTypeNode.textContent.trim() : "other";
-    const rawTypeN = rawTypeNode ? rawTypeNode.getAttribute("n") : "";
+    var pdfNode = entry.querySelector('ref[type="file"][subtype="author"]');
+    var pdf = pdfNode ? pdfNode.getAttribute("target") : (uri + "/document");
 
-    const typeMap = {
+    var rawTypeNode = entry.querySelector('classCode[scheme="halTypology"]');
+    var rawType = rawTypeNode ? rawTypeNode.textContent.trim() : "other";
+    var rawTypeN = rawTypeNode ? rawTypeNode.getAttribute("n") : "";
+
+    var typeMap = {
       "Journal articles": "journal articles",
       "Preprints, Working Papers, ...": "preprints",
       "Conference papers": "conference papers",
@@ -74,47 +81,69 @@ function parseTEI(xmlText) {
       "Theses": "phd thesis"
     };
 
-    let type = typeMap[rawType] || "Other";
-    if (rawTypeN === "THESE") type = "phd thesis";
-
+    var type = typeMap[rawType] || "Other";
+    if (rawTypeN === "THESE") {
+      type = "phd thesis";
+    }
     if (rawType === "Conference papers") {
-      const procNote = entry.querySelector("note[type='proceedings']");
-      const inProceedings = procNote && procNote.getAttribute("n") === "1";
+      var procNote = entry.querySelector('note[type="proceedings"]');
+      var inProceedings = procNote && procNote.getAttribute("n") === "1";
       type = inProceedings ? "conference paper (with proceedings)" : "talk (without proceedings)";
     }
 
-    let year = "";
-    const dateNode = entry.querySelector("date[type='datePub']") || entry.querySelector("date");
+    var dateNode = entry.querySelector('date[type="datePub"]') || entry.querySelector("date");
+    var year = "";
     if (dateNode) {
-      const when = dateNode.getAttribute("when");
+      var when = dateNode.getAttribute("when");
       year = when ? when.slice(0, 4) : dateNode.textContent.trim().slice(0, 4);
     }
 
-    let journal = "";
+    var journal = "";
     if (
       rawType === "Conference papers" ||
-      type.startsWith("Conference") ||
-      type.startsWith("Talk")
+      type.indexOf("Conference") === 0 ||
+      type.indexOf("Talk") === 0
     ) {
-      const confName = entry.querySelector("meeting > title")?.textContent.trim() || "";
-      const city = entry.querySelector("meeting > settlement")?.textContent.trim() || "";
-      const country = entry.querySelector("meeting > country")?.textContent.trim() || "";
+      var confNameNode = entry.querySelector("meeting > title");
+      var cityNode = entry.querySelector("meeting > settlement");
+      var countryNode = entry.querySelector("meeting > country");
+      var startNode = entry.querySelector('meeting > date[type="start"]');
+      var confName = confNameNode ? confNameNode.textContent.trim() : "";
+      var city = cityNode ? cityNode.textContent.trim() : "";
+      var country = countryNode ? countryNode.textContent.trim() : "";
       journal = [confName, [city, country].filter(Boolean).join(", ")].filter(Boolean).join(", ");
-      const start = entry.querySelector("meeting > date[type='start']")?.textContent.trim();
-      year = start ? start.slice(0, 4) : year;
+      if (startNode) {
+        year = startNode.textContent.trim().slice(0, 4);
+      }
     } else if (type === "PhD Thesis") {
-      const inst = entry.querySelector("monogr > authority[type='institution']");
-      journal = inst ? inst.textContent.trim() : "";
+      var institutionNode = entry.querySelector('monogr > authority[type="institution"]');
+      journal = institutionNode ? institutionNode.textContent.trim() : "";
     } else {
-      const pub = entry.querySelector("monogr > imprint > publisher") ||
-                  entry.querySelector("publicationStmt > publisher");
-      const title = entry.querySelector("monogr > title");
-      journal = title?.textContent.trim() || pub?.textContent.trim() || "";
+      var publisherNode = entry.querySelector("monogr > imprint > publisher") || entry.querySelector("publicationStmt > publisher");
+      var monogrTitleNode = entry.querySelector("monogr > title");
+      var publisher = publisherNode ? publisherNode.textContent.trim() : "";
+      var monogrTitle = monogrTitleNode ? monogrTitleNode.textContent.trim() : "";
+      if (type === "Books") journal = publisher || "Book";
+      else if (type === "Book sections") journal = monogrTitle || publisher;
+      else journal = monogrTitle || publisher;
     }
 
-    return { title, authors, journal, year, uri, pdf, type, doi, seeAlso };
+    journal = journal.trim();
+
+    return {
+      title: title,
+      authors: authors,
+      journal: journal,
+      year: year,
+      uri: uri,
+      pdf: pdf,
+      type: type,
+      doi: doi,
+      seeAlso: seeAlso
+    };
   });
 }
+
 
 function groupByType(entries) {
   return entries.reduce((acc, e) => {
