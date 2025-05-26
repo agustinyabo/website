@@ -7,8 +7,9 @@ nav: true
 nav_order: 2
 ---
 
-## code
+
 ---
+## code
 
 * Numerical resolution of L¹ optimal control problems, 2024<br>
   <p>From <a href="https://hal.science/hal-04820387">On L¹ and time-optimal state transitions in piecewise linear models of gene-regulatory networks</a><br>
@@ -26,8 +27,10 @@ nav_order: 2
   <p>From <a href="https://hal.science/hal-03289633">Time-optimal control of piecewise affine bistable gene-regulatory networks</a><br>
   <a href="https://ct.gitlabpages.inria.fr/gallery/bistable/bistable.html" class="btn btn-sm" role="button" target="_blank"><i class="fas fa-code"></i> see online code</a></p>
 
-## supervision
+<br>
+
 ---
+## supervision
 
 #### phd students
 
