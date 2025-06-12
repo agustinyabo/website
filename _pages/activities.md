@@ -34,29 +34,29 @@ nav_order: 2
 
 #### phd students
 
-* **William Dangelser** (at MISTEA, INRAE Montpellier), 2024-present
+* **William Dangelser** (2024-present) at MISTEA, INRAE Montpellier
   <p>Dynamical modelling of aroma synthesis in oenological fermentation</p>
 
 
 #### interships
 
-* **Mouad Mellouki** (M2, at MISTEA, INRAE Montpellier), 2024<br>
+* **Mouad Mellouki** (2024), M2 internship at MISTEA, INRAE Montpellier<br>
   <p>Nonlinear control of aroma synthesis in oenological fermentation</p>
-* **Martin Fleurial** (M2, at McTao team, Inria Sophia Antipolis), 2023
+* **Martin Fleurial** (2023), M2 internship at McTao team, Inria Sophia Antipolis
   <p>State and parameter estimation of wine fermentation models for real-time aroma control</p>
-* **Baptiste Schall** (M1, at McTao team, Inria Sophia Antipolis), 2021
+* **Baptiste Schall** (2021), M1 internship at McTao team, Inria Sophia Antipolis
   <p>Mathematical modeling and numerical analysis of dynamical allocation of cellular resources in bacteria<br>
   <a href="https://ct.gitlabpages.inria.fr/gallery/substrate/depletion.html" class="btn btn-sm" role="button" target="_blank"><i class="fas fa-code"></i> see online code</a> </p>
-* **Sacha Psalmon** (M1, at Biocore team, Inria Sophia Antipolis), 2021
+* **Sacha Psalmon** (2021), M1 internship at Biocore team, Inria Sophia Antipolis
   <p>Mathematical modeling and numerical analysis of dynamical allocation of cellular resources in bacteria<br>
   <a href="https://ct.gitlabpages.inria.fr/gallery/substrate/depletion.html" class="btn btn-sm" role="button" target="_blank"><i class="fas fa-code"></i> see online code</a> </p>
 
 
 #### student projects
 
-* **Lelio Astruc** and **Nathan Edery** (M1, at Polytech Nice Sophia), 2023
+* **Lelio Astruc** and **Nathan Edery** (2023), M1 students at Polytech Nice Sophia
   <p>Optimal allocation of bacterial resources in a bioreactor</p>
-* **Sacha Psalmon**, **Baptiste Schall**, **Enzo Isnard** and **Guillaume Gros** (M1, at Polytech Nice Sophia), 2021
+* **Sacha Psalmon**, **Baptiste Schall**, **Enzo Isnard** and **Guillaume Gros** (2021), M1 students at Polytech Nice Sophia
   <p>Dynamical analysis and optimization of a generalized resource allocation model of microbial growth<br>
   <a href="https://ct.gitlabpages.inria.fr/gallery/bacteria/bacteria.html" class="btn btn-sm" role="button" target="_blank"><i class="fas fa-code"></i> see online code</a> </p>
   
