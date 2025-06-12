@@ -34,28 +34,41 @@ nav_order: 2
 
 #### phd students
 
-* William Dangelser (at MISTEA, INRAE Montpellier), 2024-present
+* **William Dangelser** (at MISTEA, INRAE Montpellier), 2024-present
   <p>Dynamical modelling of aroma synthesis in oenological fermentation</p>
 
 
 #### interships
 
-* Mouad Mellouki (M2, at MISTEA, INRAE Montpellier), 2024<br>
+* **Mouad Mellouki** (M2, at MISTEA, INRAE Montpellier), 2024<br>
   <p>Nonlinear control of aroma synthesis in oenological fermentation</p>
-* Martin Fleurial (M2, at McTao team, Inria Sophia Antipolis), 2023
+* **Martin Fleurial** (M2, at McTao team, Inria Sophia Antipolis), 2023
   <p>State and parameter estimation of wine fermentation models for real-time aroma control</p>
-* Baptiste Schall (M1, at McTao team, Inria Sophia Antipolis), 2021
+* **Baptiste Schall** (M1, at McTao team, Inria Sophia Antipolis), 2021
   <p>Mathematical modeling and numerical analysis of dynamical allocation of cellular resources in bacteria<br>
   <a href="https://ct.gitlabpages.inria.fr/gallery/substrate/depletion.html" class="btn btn-sm" role="button" target="_blank"><i class="fas fa-code"></i> see online code</a> </p>
-* Sacha Psalmon (M1, at Biocore team, Inria Sophia Antipolis), 2021
+* **Sacha Psalmon** (M1, at Biocore team, Inria Sophia Antipolis), 2021
   <p>Mathematical modeling and numerical analysis of dynamical allocation of cellular resources in bacteria<br>
   <a href="https://ct.gitlabpages.inria.fr/gallery/substrate/depletion.html" class="btn btn-sm" role="button" target="_blank"><i class="fas fa-code"></i> see online code</a> </p>
 
 
-#### projects
+#### student projects
 
-* Lelio Astruc and Nathan Edery (M1, at Polytech Nice Sophia), 2023
+* **Lelio Astruc** and **Nathan Edery** (M1, at Polytech Nice Sophia), 2023
   <p>Optimal allocation of bacterial resources in a bioreactor</p>
-* Sacha Psalmon, Baptiste Schall, Enzo Isnard and Guillaume Gros (M1, at Polytech Nice Sophia), 2021
+* **Sacha Psalmon**, **Baptiste Schall**, **Enzo Isnard** and **Guillaume Gros** (M1, at Polytech Nice Sophia), 2021
   <p>Dynamical analysis and optimization of a generalized resource allocation model of microbial growth<br>
   <a href="https://ct.gitlabpages.inria.fr/gallery/bacteria/bacteria.html" class="btn btn-sm" role="button" target="_blank"><i class="fas fa-code"></i> see online code</a> </p>
+  
+  
+---
+## projects
+
+* **<a href="https://mia-ps.inrae.fr/node/797">ANR DigitWine</a>** (2025-2029)<br>
+  Human-centred multiobjective optimisation of organoleptic quality and energy footprint during winemaking fermentation
+
+* **<a href="https://spo.montpellier.hub.inrae.fr/projets/projets-nationaux/anr-starwine/site-starwine">ANR Starwine</a>** (2019-2023)<br>
+  STrategies for the real-time control of ARoma production during WINE fermentation
+
+* **<a href="https://project.inria.fr/maximic/project/">ANR Maximic</a>** (2017-2021)<br>
+  Optimal control of microbial cells by natural and synthetic strategies
