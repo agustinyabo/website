@@ -58,6 +58,14 @@ table.table a {
 figure,
 img {
   max-width: 90vw;
+  
+}
+@media (max-width: 768px) {
+  figure,
+  img {
+    max-width: 80vw; // limit image width to 80% of viewport
+    width: 40%;     // allow proportional scaling
+  }
 }
 
 blockquote {
