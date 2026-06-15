@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  Scientific Computing Engineer (12‑month position) at UMR MISTEA
+title:  (NOW CLOSED) Scientific Computing Engineer (12‑month position) at UMR MISTEA
 date:   2025-09-12 10:00:00
 description: Full-time engineer position in scientific computing, modeling, and software development at INRAE UMR MISTEA
 ---
