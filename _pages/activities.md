@@ -11,7 +11,7 @@ nav_order: 2
 ---
 ## code
 
-* Optimal feedback allocation strategies in diauxic bacterial growth, 2025<br>
+* Predicting diauxic growth as an optimal control problem, 2025<br>
   <p>From <a href="https://hal.science/hal-03913957">Optimal feedback allocation strategies in a generic class of bacterial growth models with multiple substrates</a><br>
   <a href="https://agustinyabo.github.io/DiauxicGrowth.jl/stable/" class="btn btn-sm" role="button" target="_blank"><i class="fas fa-code"></i> see online code</a></p>
 
