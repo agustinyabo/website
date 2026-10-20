@@ -11,6 +11,10 @@ nav_order: 2
 ---
 ## code
 
+* Optimal feedback allocation strategies in diauxic bacterial growth, 2025<br>
+  <p>From <a href="https://hal.science/hal-03913957">Optimal feedback allocation strategies in a generic class of bacterial growth models with multiple substrates</a><br>
+  <a href="https://agustinyabo.github.io/DiauxicGrowth.jl/stable/" class="btn btn-sm" role="button" target="_blank"><i class="fas fa-code"></i> see online code</a></p>
+
 * Numerical resolution of L¹ optimal control problems, 2024<br>
   <p>From <a href="https://hal.science/hal-04820387">On L¹ and time-optimal state transitions in piecewise linear models of gene-regulatory networks</a><br>
   <a href="https://agustinyabo.github.io/PWLdynamics.jl/stable/" class="btn btn-sm" role="button" target="_blank"><i class="fas fa-code"></i> see online code</a></p>
@@ -64,10 +68,10 @@ nav_order: 2
 ---
 ## projects
 
-* **<a href="https://mia-ps.inrae.fr/node/797">ANR DigitWine</a>** (2025-2029)<br>
+* **<a href="https://anr.fr/Projet-ANR-24-CE10-4479">ANR DigitWine</a>** (2025-2029)<br>
   Human-centred multiobjective optimisation of organoleptic quality and energy footprint during winemaking fermentation
 
-* **<a href="https://spo.montpellier.hub.inrae.fr/projets/projets-nationaux/anr-starwine/site-starwine">ANR Starwine</a>** (2019-2023)<br>
+* **<a href="https://anr.fr/Projet-ANR-18-CE10-0013">ANR Starwine</a>** (2019-2023)<br>
   STrategies for the real-time control of ARoma production during WINE fermentation
 
 * **<a href="https://project.inria.fr/maximic/project/">ANR Maximic</a>** (2017-2021)<br>
