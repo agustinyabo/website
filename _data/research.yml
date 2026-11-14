@@ -1,0 +1,156 @@
+
+
+- title: Code
+  type: cards
+  contents:
+    - title: Predicting diauxic growth as an optimal control problem
+      year: 2025
+      image: code/diauxic.jpg
+      paper: Optimal feedback allocation strategies in a generic class of bacterial growth models with multiple substrates
+      paper_link: https://hal.science/hal-03913957
+      link: https://agustinyabo.github.io/DiauxicGrowth.jl/stable/
+    - title: Numerical resolution of L¹ optimal control problems
+      year: 2024
+      image: code/pwl-l1.jpg
+      paper: On L¹ and time-optimal state transitions in piecewise linear models of gene-regulatory networks
+      paper_link: https://hal.science/hal-04820387
+      link: https://agustinyabo.github.io/PWLdynamics.jl/stable/
+    - title: Stability analysis of dynamical models through computer algebra
+      year: 2023
+      image: code/stability.jpg
+      paper: Stability analysis of a bacterial growth model through computer algebra
+      paper_link: https://hal.science/hal-03671432
+      link: https://ct.gitlabpages.inria.fr/gallery/stability/stability.html
+    - title: Simulation and optimal control of a hybrid model of coffee leaf rust propagation
+      year: 2021
+      image: code/coffee-leaf-rust.jpg
+      cover: true
+      paper: Mathematical modelling and optimal control of the seasonal coffee leaf rust propagation
+      paper_link: https://inria.hal.science/hal-03274865
+      link: https://ct.gitlabpages.inria.fr/gallery/clr/clr.html
+    - title: Optimal control of piecewise linear models
+      year: 2021
+      image: code/bistable.jpg
+      paper: Time-optimal control of piecewise affine bistable gene-regulatory networks
+      paper_link: https://hal.science/hal-03289633
+      link: https://ct.gitlabpages.inria.fr/gallery/bistable/bistable.html
+
+- title: Research projects
+  type: projects
+  contents:
+    - name: AI-HERBAGE
+      funder: PEPR AgroEcoNum
+      period: 2026 – 2031
+      description: Artificial Intelligence for the Holistic Efficiency of Rangeland in terms of Breeding Animals and Grassland Exploitation.
+      role: Participant
+      partners: [Eco&Sols, MISTEA, TETIS, SELMET, Inria Thoth, Herbivores, LIMOS, La Fage, Gipsa-lab]
+
+    - name: SingleCell
+      funder: INRAE MathNum
+      period: 2026
+      description: Stochastic and deterministic single-cell models, with application to alcoholic fermentation.
+      role: Co-leader (with B. Cloez)
+      lead: true
+
+    - name: DigitWine
+      funder: ANR
+      period: 2025 – 2029
+      description: Multiobjective optimization of wine fermentation quality and energy footprint.
+      role: Work package leader (real-time control)
+      lead: true
+      partners: [SayFood, AgroParisTech, MISTEA, MIA Paris, SPO, Pech Rouge]
+      link: https://anr.fr/Projet-ANR-24-CE10-4479
+
+    - name: NyLoops
+      funder: INRAE MathNum
+      period: 2025 – 2026
+      description: Feedback loops in biological systems.
+      role: Project leader
+      lead: true
+
+    - name: StarWine
+      funder: ANR
+      period: 2019 – 2023
+      description: Real-time control of aroma synthesis in wine fermentation.
+      role: Participant
+      partners: [SPO, GMPA, LISBP, MISTEA, Pech Rouge]
+      link: https://anr.fr/Projet-ANR-18-CE10-0013
+
+    - name: Maximic
+      funder: ANR
+      period: 2017 – 2021
+      description: Optimal control of microbial cells by natural and synthetic strategies.
+      role: Member
+      link: https://project.inria.fr/maximic/project/
+
+- title: Supervision
+  type: time_table
+  contents:
+    - title: "PhD thesis — William Dangelser"
+      year: 2024 – present
+      institution: MISTEA, INRAE Montpellier
+      department: Co-supervised with Céline Casenave (MISTEA)
+      maindescription: "<i>Mechanistic modeling of aroma synthesis in oenological fermentation.</i>"
+    - title: "M2 internship — Mouad Mellouki"
+      year: 2024
+      institution: MISTEA, INRAE Montpellier
+      department: Co-supervised with Céline Casenave (MISTEA)
+      maindescription: "<i>Nonlinear control of aroma synthesis in oenological fermentation.</i>"
+    - title: "M2 internship — Martin Fleurial"
+      year: 2023
+      institution: McTAO team, Inria Sophia Antipolis
+      department: Co-supervised with Ludovic Sacchelli (McTAO team, Inria Sophia Antipolis)
+      maindescription: "<i>State and parameter estimation of wine fermentation models for real-time aroma control.</i>"
+    - title: "M1 project — Lelio Astruc and Nathan Edery"
+      year: 2023
+      institution: Polytech Nice Sophia
+      department: Co-supervised with Jean-Baptiste Caillau (McTAO team, Inria Sophia Antipolis)
+      maindescription: "<i>Optimal allocation of bacterial resources in a bioreactor.</i>"
+    - title: "M1 internships — Baptiste Schall and Sacha Psalmon"
+      year: 2021
+      institution: McTAO and Biocore teams, Inria Sophia Antipolis
+      department: Co-supervised with Jean-Baptiste Caillau (McTAO team, Inria Sophia Antipolis)
+      maindescription: "<i>Mathematical modeling and numerical analysis of dynamical allocation of cellular resources in bacteria.</i>"
+      linkitems:
+        - link: https://ct.gitlabpages.inria.fr/gallery/substrate/depletion.html
+          linkname: code
+    - title: "M1 project — Sacha Psalmon, Baptiste Schall, Enzo Isnard and Guillaume Gros"
+      year: 2021
+      institution: Polytech Nice Sophia
+      department: Co-supervised with Jean-Baptiste Caillau (McTAO team, Inria Sophia Antipolis)
+      maindescription: "<i>Dynamical analysis and optimization of a generalized resource allocation model of microbial growth.</i>"
+      linkitems:
+        - link: https://ct.gitlabpages.inria.fr/gallery/bacteria/bacteria.html
+          linkname: code
+
+- title: Talks
+  type: talks
+  contents:
+    - title: Conference presentations
+      items:
+        - { year: "2026", event: "23rd IFAC World Congress", place: "Busan, South Korea" }
+        - { year: "2025", event: "64th IEEE Conference on Decision and Control (CDC)", place: "Rio de Janeiro, Brazil" }
+        - { year: "2025", event: "Biennale Française des Mathématiques Appliquées et Industrielles (SMAI 2025)", place: "Carcans-Maubuisson, France", invited: true }
+        - { year: "2024", event: "European Control Conference (ECC)", place: "Stockholm, Sweden" }
+        - { year: "2023", event: "22nd IFAC World Congress", place: "Yokohama, Japan" }
+        - { year: "2022", event: "European Control Conference (ECC)", place: "London, United Kingdom" }
+        - { year: "2021", event: "7th IFAC Conference on Analysis and Design of Hybrid Systems (ADHS)", place: "Brussels, Belgium", note: "two presentations" }
+        - { year: "2020", event: "21st IFAC World Congress", place: "Berlin / virtual" }
+        - { year: "2019", event: "58th IEEE Conference on Decision and Control (CDC)", place: "Nice, France" }
+        - { year: "2019", event: "19th French-German-Swiss Conference on Optimization (FGS'2019)", place: "Nice, France" }
+        - { year: "2016", event: "XXV Congreso Argentino de Control Automático (AADECA 2016)", place: "Buenos Aires, Argentina" }
+    - title: Seminars and workshops
+      items:
+        - { year: "2026", event: "Journée contrôle optimal et applications (FRUMAM)", place: "Marseille, France", invited: true }
+        - { year: "2025", event: "Journée Microcosmes – MISTEA", place: "Montpellier, France", note: "Single-cell models" }
+        - { year: "2024", event: "LBE Narbonne seminar (INRAE)", place: "Narbonne, France", note: "Modelling and bioprocesses" }
+        - { year: "2023", event: "IMCA seminar (Universidad Nacional de Ingeniería)", place: "Lima, Peru", note: "Digital agriculture" }
+        - { year: "2023", event: "Laboratoire de Mathématiques d'Avignon", place: "Avignon, France" }
+        - { year: "2023", event: "ANR StarWine technical seminar for private partners, Pech Rouge (INRAE)", place: "Gruissan, France" }
+        - { year: "2023", event: "MISTEA (INRAE), visit of the MathNum department", place: "Montpellier, France" }
+        - { year: "2022", event: "MAC team seminar (LAAS-CNRS)", place: "Toulouse, France" }
+        - { year: "2022", event: "MISTEA seminars (INRAE)", place: "Montpellier and Juvignac, France" }
+        - { year: "2021", event: "Journée contrôle optimal et applications (FRUMAM)", place: "Avignon, France" }
+        - { year: "2018", event: "ANR Maximic seminar (Inria Grenoble / LIPhy)", place: "Grenoble, France" }
+        - { year: "2018", event: "DataMove team seminar (Inria Grenoble / LIG)", place: "Grenoble, France" }
+        - { year: "2018–22", event: "Biocore and McTao team seminars (Inria Sophia Antipolis)", place: "Côte d'Azur, France" }

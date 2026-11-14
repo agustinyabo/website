@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Local preview of the site with live reload.
+# Usage: bin/preview   (from anywhere inside the repo), then open http://localhost:8080/website/
+# Stop with Ctrl+C. Restart after editing _config.yml.
+set -euo pipefail
+cd "$(dirname "$0")/.."
+exec docker run --rm -it \
+  -p 8080:8080 -p 35729:35729 \
+  -v "$PWD":/srv/jekyll -v website-gems:/usr/local/bundle \
+  -w /srv/jekyll ruby:3.2 \
+  bash -c 'apt-get update -qq && apt-get install -y -qq imagemagick >/dev/null && bundle install && bundle exec jekyll serve --host 0.0.0.0 --port 8080 --livereload --force_polling'

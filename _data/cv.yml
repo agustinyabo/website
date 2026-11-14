@@ -1,1 +1,160 @@
+- title: Education
+  type: degrees
+  contents:
+    - level: Engineer
+      title: Industrial Automation and Control
+      year: 2008 – 2015
+      institution: National University of Quilmes
+      location: Buenos Aires, Argentina
 
+    - level: MSc
+      title: Systems, Control & IT
+      year: 2017 – 2018
+      institution: Université Grenoble Alpes
+      location: Grenoble, France
+
+    - level: PhD
+      title: Automation, Signal and Image Processing
+      year: 2018 – 2021
+      institution: Université Côte d'Azur
+      location: Nice, France
+      note: EDSTIC PhD thesis prize (2021)
+
+- title: Research experience
+  type: time_table
+  contents:
+    - title: Research scientist
+      year: 2023 – present
+      location: Montpellier, France
+      institution: INRAE Occitanie-Montpellier
+      department: MISTEA unit
+      maindescription: "<b>Research topic:</b> <i>Control-theoretical methods in biological systems, and its applications to the understanding of regulatory mechanisms and the control of bioprocesses</i>"
+
+    - title: Postdoctoral researcher
+      year: 2022 – 2023
+      location: Montpellier, France
+      institution: INRAE Occitanie-Montpellier
+      department: "MISTEA unit · Supervision: Céline Casenave"
+      maindescription: "<b>Project:</b> <i>Control of the aroma synthesis during wine fermentation process</i>"
+      description:
+        - Investigate novel real-time control strategies in wine fermentation for improving aroma composition and reducing energy consumption.
+        - Control-oriented modeling of aroma synthesis in fermentation processes from experimental data.
+
+    - title: PhD candidate
+      year: 2018 – 2021
+      location: Nice, France
+      institution: Inria Sophia Antipolis - Méditerranée
+      department: "Biocore / McTao teams · Supervision: Jean-Luc Gouzé and Jean-Baptiste Caillau"
+      maindescription: "<b>Thesis:</b> <i>Optimal resource allocation in bacterial growth: theoretical study and applications to metabolite production</i>"
+      description:
+        - Optimal control strategies for synthesizing artificial metabolites in bacteria through growth rate regulation, and model-predictive control loops for its production in industrial setups.
+        - Different applications of computer science and systems theory to biological problems.
+        - "Teaching assistant (TD) in Statistics and R (MAM3) and Time series (MAM4), Applied mathematics and modeling engineering degree, Polytech Nice Sophia."
+
+    - title: Master's intern
+      year: 2018
+      location: Grenoble, France
+      institution: Inria Grenoble - Rhône Alpes
+      department: "Ctrl-A team · Supervision: Eric Rutten"
+      maindescription: "<b>Internship:</b> <i>A control-theory approach for cluster autonomic management: maximizing usage while avoiding overload</i>"
+      description:
+        - Design and validation of control-oriented system models for autonomic computing and self-management of High Performance Computing systems.
+        - Novel control strategies for autonomic resource management through optimal and predictive control approaches in real grid computing systems.
+
+    - title: Research assistant
+      year: 2014 – 2017
+      location: Buenos Aires, Argentina
+      institution: National University of Quilmes
+      department: "Science & Technology Department · Supervision: Damián E. Oliva"
+      maindescription: "<b>Projects:</b>"
+      description:
+        - Real-time computer vision algorithms in Python for vehicle tracking, measuring traffic flow parameters and detecting traffic jams.
+        - Machine learning techniques for vehicle classification and statistical analysis of traffic flow.
+        - Dynamical modeling and numerical simulation of arthropods' visual motion-sensitive neurons for studying and controlling their visuomotor behaviors.
+        - Teaching assistant in Neural Networks and Control Systems courses.
+
+- title: Industry experience
+  type: time_table
+  contents:
+    - title: Research Engineer
+      year: 2015 – 2017
+      location: Buenos Aires, Argentina
+      institution: G&L Group S.A.
+      department: R&D Department
+      description:
+        - Provided IT solutions (e.g. machine learning, computer vision, automation, control systems and IT infrastructure) and consulting services to companies and clients.
+        - Participated in domestic non-profit technological projects in cooperation with the Ministry of Science, Technology and Productive Innovation (Argentina).
+
+    - title: Industrial Automation Engineer
+      year: 2013 – 2014
+      location: Buenos Aires, Argentina
+      institution: Secin S.A.
+      department: Automation Department
+      description:
+        - Developed, implemented, tested and troubleshooted automation systems and control loops through Siemens programmable controllers.
+        - Acquired an overall understanding of manufacturing processes, as well as industrial instrumentation equipment.
+
+    - title: Platform Analyst
+      year: 2012 – 2013
+      location: Buenos Aires, Argentina
+      institution: ICBC Argentina S.A.
+      department: IT Department
+      description:
+        - Designed and programmed algorithms and scripts for automating IT processes.
+        - Acquired general knowledge of big-scale IT infrastructures, and implemented automated tasks on repetitive processes.
+
+- title: Teaching
+  type: time_table
+  contents:
+    - title: Polytech Nice Sophia — Applied mathematics and modeling engineering
+      year: 2019 – 2021
+      location: Sophia Antipolis, France
+      description:
+        - "Statistics & R, MAM3 (BSc level), 64 h"
+        - "Time series, MAM4 (MSc level), 64 h"
+    - title: National University of Quilmes — Industrial Automation and Control engineering
+      year: 2016 – 2017
+      location: Buenos Aires, Argentina
+      description:
+        - "Automatic Control I (BSc level), 60 h"
+        - "Neural Networks (MSc level), 60 h"
+
+- title: Grants and awards
+  type: time_table
+  contents:
+    - title: EDSTIC PhD thesis prize
+      year: 2021
+      maindescription: "2 awards per year to outstanding PhD theses from the ATSI (Automation, Signal and Image Processing) discipline. Granted by Université Côte d'Azur (Nice, France)."
+    - title: EDSTIC PhD funding
+      year: 2018
+      maindescription: "PhD funding (10 grants per year). Granted by Université Côte d'Azur (Nice, France)."
+    - title: CORDI-S PhD funding
+      year: 2018
+      maindescription: "PhD funding (4 grants per year). Granted by Inria Grenoble - Rhône-Alpes (Grenoble, France)."
+    - title: LabEx PERSYVAL-Lab
+      year: 2017
+      maindescription: "Master M2 scholarship program (10 grants per year). Granted by LabEx PERSYVAL-Lab and Université Grenoble Alpes (Grenoble, France)."
+    - title: University and Transport
+      year: 2016
+      maindescription: "Merit-based research scholarship for research assistants. Granted by the Ministry of Education and National University of Quilmes (Buenos Aires, Argentina)."
+    - title: SAI Research Subsidy Program
+      year: 2015
+      maindescription: "Research support subsidy for undergraduate students. Granted by National University of Quilmes (Buenos Aires, Argentina)."
+    - title: Santander Ibero-American Grants
+      year: 2014
+      maindescription: "Exchange scholarship for a 1 semester stay in Spain. Granted by Santander Bank (Spain) and National University of Quilmes (Buenos Aires, Argentina)."
+    - title: CONAHEC Student Exchange Program
+      year: 2013
+      maindescription: "Short-stay exchange scholarship. Granted by CONAHEC and National University of Quilmes (Buenos Aires, Argentina)."
+
+- title: Languages
+  type: map
+  contents:
+    - name: English
+      value: Fluent (IELTS Band 7.5)
+    - name: Spanish
+      value: Mother tongue
+    - name: French
+      value: Fluent
+    - name: Chinese
+      value: HSK Level 2

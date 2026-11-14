@@ -7,6 +7,8 @@ nav: true
 nav_order: 3
 ---
 
+<p>Full list of publications also available on <a href="https://cv.hal.science/agustin-gabriel-yabo" target="_blank" rel="noopener noreferrer">HAL</a>.</p>
+
 <div class="publications" id="hal-publications-container">Loading publications...</div>
 
 <script>

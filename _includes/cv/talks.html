@@ -1,0 +1,18 @@
+{% for group in entry.contents %}
+<div class="cv-talks-group">
+  {% if group.title %}<h6 class="cv-talks-heading">{{ group.title }}</h6>{% endif %}
+  <ul class="cv-talks">
+    {% for item in group.items %}
+    <li>
+      <span class="cv-talk-year">{{ item.year }}</span>
+      <span class="cv-talk-body">
+        <span class="cv-talk-event">{{ item.event }}</span>
+        {% if item.invited %}<span class="cv-talk-tag">invited</span>{% endif %}
+        {% if item.note %}<span class="cv-talk-note">· {{ item.note }}</span>{% endif %}
+        <span class="cv-talk-place"><i class="fa-solid fa-location-dot"></i> {{ item.place }}</span>
+      </span>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+{% endfor %}

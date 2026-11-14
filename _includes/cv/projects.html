@@ -1,0 +1,27 @@
+<div class="row cv-projects">
+  {% for content in entry.contents %}
+  <div class="col-md-6 mb-3">
+    <div class="cv-project h-100{% if content.lead %} lead{% endif %}">
+      <div class="cv-project-top">
+        {% if content.funder %}<span class="cv-project-funder">{{ content.funder }}</span>{% endif %}
+        {% if content.period %}<span class="cv-project-period">{{ content.period }}</span>{% endif %}
+      </div>
+      <h6 class="cv-project-name">{{ content.name }}</h6>
+      {% if content.description %}<p class="cv-project-desc">{{ content.description }}</p>{% endif %}
+      {% if content.role %}
+        <p class="cv-project-role"><i class="fa-solid {% if content.lead %}fa-star{% else %}fa-user{% endif %}"></i> {{ content.role }}</p>
+      {% endif %}
+      {% if content.partners %}
+        <div class="cv-project-partners">
+          {% for partner in content.partners %}<span>{{ partner }}</span>{% endfor %}
+        </div>
+      {% endif %}
+      {% if content.link %}
+        <div class="mt-auto pt-2">
+          <a href="{{ content.link }}" target="_blank" rel="noopener noreferrer" class="btncv z-depth-0">project page</a>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+  {% endfor %}
+</div>

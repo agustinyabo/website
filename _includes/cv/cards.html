@@ -1,0 +1,25 @@
+<div class="row cv-cards">
+  {% for content in entry.contents %}
+  <div class="col-sm-6 mb-3">
+    <div class="cv-card h-100">
+      {% if content.link %}<a href="{{ content.link }}" target="_blank" rel="noopener noreferrer" class="cv-card-media">{% else %}<div class="cv-card-media">{% endif %}
+        {% if content.image %}
+          <img src="{{ content.image | prepend: 'assets/img/' | relative_url }}" alt="{{ content.title }}" loading="lazy"{% if content.cover %} class="cover"{% endif %}>
+        {% else %}
+          <i class="{{ content.icon | default: 'fa-solid fa-code' }} cv-card-icon"></i>
+        {% endif %}
+      {% if content.link %}</a>{% else %}</div>{% endif %}
+      <div class="cv-card-body">
+        {% if content.year %}<span class="cv-card-year">{{ content.year }}</span>{% endif %}
+        <h6 class="cv-card-title">{{ content.title }}</h6>
+        {% if content.paper %}
+          <p class="cv-card-paper">From <a href="{{ content.paper_link }}" target="_blank" rel="noopener noreferrer">{{ content.paper }}</a></p>
+        {% endif %}
+        {% if content.link %}
+          <a href="{{ content.link }}" target="_blank" rel="noopener noreferrer" class="btncv z-depth-0">{{ content.linkname | default: 'code' }}</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>

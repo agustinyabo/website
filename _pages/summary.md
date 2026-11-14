@@ -2,7 +2,7 @@
 layout: summary
 title: summary
 permalink: /
-subtitle: Research scientist at <a href='www.inrae.fr'>INRAE</a>
+subtitle: Research scientist at <a href='https://www.inrae.fr/en'>INRAE</a>
 
 profile:
   align: left

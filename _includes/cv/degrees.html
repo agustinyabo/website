@@ -1,0 +1,17 @@
+<div class="row cv-degrees">
+  {% for content in entry.contents %}
+  <div class="col-md-4 mb-3">
+    <div class="cv-degree h-100">
+      <div class="cv-degree-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+      <div class="cv-degree-level">{{ content.level }}</div>
+      <div class="cv-degree-title">{{ content.title }}</div>
+      <div class="cv-degree-institution">{{ content.institution }}</div>
+      {% if content.note %}<div class="cv-degree-note"><i class="fa-solid fa-award"></i> {{ content.note }}</div>{% endif %}
+      <div class="cv-degree-meta">
+        <span><i class="fa-regular fa-calendar"></i> {{ content.year }}</span>
+        {% if content.location %}<span><i class="fa-solid fa-location-dot"></i> {{ content.location }}</span>{% endif %}
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
