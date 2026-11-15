@@ -1,0 +1,39 @@
+{% if entry.text or entry.image %}
+<div class="row cv-axis-top">
+  {% if entry.text %}
+  <div class="{% if entry.image %}col-md-7{% else %}col-12{% endif %} cv-axis-text">{{ entry.text }}</div>
+  {% endif %}
+  {% if entry.image %}
+  <div class="{% if entry.text %}col-md-5{% else %}col-12{% endif %}">
+    <figure class="cv-axis-figure">
+      <img src="{{ entry.image | prepend: 'assets/img/' | relative_url }}" alt="{{ entry.title }}" loading="lazy">
+      {% if entry.figure_from %}
+      <figcaption>From <a href="{{ entry.figure_from.link }}" target="_blank" rel="noopener noreferrer">{{ entry.figure_from.title }}</a></figcaption>
+      {% endif %}
+    </figure>
+  </div>
+  {% endif %}
+</div>
+{% endif %}
+
+{% if entry.papers %}
+<h6 class="cv-axis-heading">Key publications</h6>
+<ul class="cv-axis-papers">
+  {% for paper in entry.papers %}
+  <li>
+    <span class="cv-axis-paper-year">{{ paper.year }}</span>
+    <span><a href="{{ paper.link }}" target="_blank" rel="noopener noreferrer">{{ paper.title }}</a> <span class="cv-axis-paper-venue">{{ paper.venue }}</span></span>
+  </li>
+  {% endfor %}
+</ul>
+{% endif %}
+
+{% if entry.code %}
+<h6 class="cv-axis-heading">Code</h6>
+{% include cv/cards.html items=entry.code %}
+{% endif %}
+
+{% if entry.projects %}
+<h6 class="cv-axis-heading">Projects</h6>
+{% include cv/projects.html items=entry.projects %}
+{% endif %}

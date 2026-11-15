@@ -1,5 +1,6 @@
 <div class="row cv-cards">
-  {% for content in entry.contents %}
+  {% assign items = include.items | default: entry.contents %}
+  {% for content in items %}
   <div class="col-sm-6 mb-3">
     <div class="cv-card h-100">
       {% if content.link %}<a href="{{ content.link }}" target="_blank" rel="noopener noreferrer" class="cv-card-media">{% else %}<div class="cv-card-media">{% endif %}

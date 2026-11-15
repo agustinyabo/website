@@ -14,9 +14,13 @@ layout: default
     <div class="cv">
       {% assign cv_sections = site.data[page.cv_data] | default: site.data.cv %}
       {% for entry in cv_sections %}
+        {% if entry.plain %}
+        <div class="cv-plain mt-3">{{ entry.contents }}</div>
+        {% continue %}
+        {% endif %}
         <a class="anchor" id="{{ entry.title }}"></a>
         <div class="card mt-3 p-3">
-          <h3 class="card-title font-weight-medium">{{ entry.title }}</h3>
+          {% if entry.title %}<h3 class="card-title font-weight-medium">{{ entry.title }}</h3>{% endif %}
           <div>
           {% if entry.type == "list" %}
             {% include cv/list.html %}
@@ -36,6 +40,8 @@ layout: default
             {% include cv/talks.html %}
           {% elsif entry.type == "degrees" %}
             {% include cv/degrees.html %}
+          {% elsif entry.type == "axis" %}
+            {% include cv/axis.html %}
           {% else %}
             {{ entry.contents }}
           {% endif %}

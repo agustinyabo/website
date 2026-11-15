@@ -1,5 +1,6 @@
 <div class="row cv-projects">
-  {% for content in entry.contents %}
+  {% assign items = include.items | default: entry.contents %}
+  {% for content in items %}
   <div class="col-md-6 mb-3">
     <div class="cv-project h-100{% if content.lead %} lead{% endif %}">
       <div class="cv-project-top">

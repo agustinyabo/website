@@ -459,3 +459,116 @@ ul.timeline li::before {
     color: var(--global-theme-color);
   }
 }
+
+// Research axis blocks
+.cv-axis-top {
+  margin-top: 0.25rem;
+  align-items: center;
+}
+.cv-axis-text p {
+  font-weight: 300;
+}
+.cv-axis-figure {
+  margin: 0 0 1rem;
+  img {
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid var(--global-divider-color);
+    border-radius: 6px;
+    padding: 0.5rem;
+  }
+  figcaption {
+    margin-top: 0.35rem;
+    font-size: 0.75rem;
+    color: var(--global-text-color-light);
+    a {
+      color: inherit;
+      text-decoration: underline;
+    }
+  }
+}
+.cv-axis-heading {
+  font-weight: bold;
+  margin: 1.25rem 0 0.6rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--global-divider-color);
+}
+.cv-axis-papers {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  li {
+    display: flex;
+    gap: 0.9rem;
+    padding: 0.3rem 0;
+  }
+  .cv-axis-paper-year {
+    flex: 0 0 2.8rem;
+    font-weight: bold;
+    color: var(--global-theme-color);
+    font-variant-numeric: tabular-nums;
+  }
+  a {
+    color: var(--global-text-color);
+    &:hover {
+      color: var(--global-theme-color);
+      text-decoration: none;
+    }
+  }
+  .cv-axis-paper-venue {
+    font-style: italic;
+    font-weight: 300;
+    font-size: 0.85rem;
+    color: var(--global-text-color-light);
+  }
+}
+
+// Light mode: inner cards a touch off-white so they separate from the
+// white section without needing strong borders.
+.cv-card,
+.cv-project,
+.cv-degree {
+  background-color: #fafafb;
+}
+
+// Dark mode: elevation by lightness (inner cards one step lighter than sections),
+// soft borders, and figures on light grey instead of pure white.
+html[data-theme='dark'] {
+  .cv-card,
+  .cv-project,
+  .cv-degree {
+    background-color: #4d4d55;
+    border-color: #5f5f67;
+  }
+  .cv-project.lead {
+    border-left-color: var(--global-theme-color);
+  }
+  .cv-degree {
+    border-top-color: var(--global-theme-color);
+  }
+  .cv-card-media,
+  .cv-card-media img,
+  .cv-axis-figure img {
+    background-color: #e4e4e8;
+  }
+  .cv-card-media {
+    border-bottom-color: #5f5f67;
+  }
+  .cv-axis-figure img {
+    border-color: #5f5f67;
+  }
+  .cv-card:hover,
+  .cv-project:hover {
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+  }
+  .cv-card-paper a {
+    color: #7fcde3;
+  }
+}
+
+// Unboxed intro text (entries with `plain: true`)
+.cv-plain {
+  font-size: 1.05rem;
+  font-weight: 300;
+  margin-bottom: 1.5rem;
+}

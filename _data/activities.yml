@@ -1,0 +1,124 @@
+- title: Supervision
+  type: time_table
+  contents:
+  - title: PhD thesis — William Dangelser
+    year: 2024 – present
+    institution: MISTEA, INRAE Montpellier
+    department: Co-supervised with Céline Casenave (MISTEA)
+    maindescription: <i>Mechanistic modeling of aroma synthesis in oenological fermentation.</i>
+  - title: M2 internship — Mouad Mellouki
+    year: 2024
+    institution: MISTEA, INRAE Montpellier
+    department: Co-supervised with Céline Casenave (MISTEA)
+    maindescription: <i>Nonlinear control of aroma synthesis in oenological fermentation.</i>
+  - title: M2 internship — Martin Fleurial
+    year: 2023
+    institution: McTAO team, Inria Sophia Antipolis
+    department: Co-supervised with Ludovic Sacchelli (McTAO team, Inria Sophia Antipolis)
+    maindescription: <i>State and parameter estimation of wine fermentation models for real-time aroma control.</i>
+  - title: M1 project — Lelio Astruc and Nathan Edery
+    year: 2023
+    institution: Polytech Nice Sophia
+    department: Co-supervised with Jean-Baptiste Caillau (McTAO team, Inria Sophia Antipolis)
+    maindescription: <i>Optimal allocation of bacterial resources in a bioreactor.</i>
+  - title: M1 internships — Baptiste Schall and Sacha Psalmon
+    year: 2021
+    institution: McTAO and Biocore teams, Inria Sophia Antipolis
+    department: Co-supervised with Jean-Baptiste Caillau (McTAO team, Inria Sophia Antipolis)
+    maindescription: <i>Mathematical modeling and numerical analysis of dynamical allocation of cellular resources in bacteria.</i>
+    linkitems:
+    - link: https://ct.gitlabpages.inria.fr/gallery/substrate/depletion.html
+      linkname: code
+  - title: M1 project — Sacha Psalmon, Baptiste Schall, Enzo Isnard and Guillaume Gros
+    year: 2021
+    institution: Polytech Nice Sophia
+    department: Co-supervised with Jean-Baptiste Caillau (McTAO team, Inria Sophia Antipolis)
+    maindescription: <i>Dynamical analysis and optimization of a generalized resource allocation model of microbial growth.</i>
+    linkitems:
+    - link: https://ct.gitlabpages.inria.fr/gallery/bacteria/bacteria.html
+      linkname: code
+- title: Talks
+  type: talks
+  contents:
+  - title: Conference presentations
+    items:
+    - year: '2026'
+      event: 23rd IFAC World Congress
+      place: Busan, South Korea
+    - year: '2025'
+      event: 64th IEEE Conference on Decision and Control (CDC)
+      place: Rio de Janeiro, Brazil
+    - year: '2025'
+      event: Biennale Française des Mathématiques Appliquées et Industrielles (SMAI 2025)
+      place: Carcans-Maubuisson, France
+      invited: true
+    - year: '2024'
+      event: European Control Conference (ECC)
+      place: Stockholm, Sweden
+    - year: '2023'
+      event: 22nd IFAC World Congress
+      place: Yokohama, Japan
+    - year: '2022'
+      event: European Control Conference (ECC)
+      place: London, United Kingdom
+    - year: '2021'
+      event: 7th IFAC Conference on Analysis and Design of Hybrid Systems (ADHS)
+      place: Brussels, Belgium
+      note: two presentations
+    - year: '2020'
+      event: 21st IFAC World Congress
+      place: Berlin / virtual
+    - year: '2019'
+      event: 58th IEEE Conference on Decision and Control (CDC)
+      place: Nice, France
+    - year: '2019'
+      event: 19th French-German-Swiss Conference on Optimization (FGS'2019)
+      place: Nice, France
+    - year: '2016'
+      event: XXV Congreso Argentino de Control Automático (AADECA 2016)
+      place: Buenos Aires, Argentina
+  - title: Seminars and workshops
+    items:
+    - year: '2026'
+      event: Journée contrôle optimal et applications (FRUMAM)
+      place: Marseille, France
+      invited: true
+    - year: '2025'
+      event: Journée Microcosmes – MISTEA
+      place: Montpellier, France
+      note: Single-cell models
+    - year: '2024'
+      event: LBE Narbonne seminar (INRAE)
+      place: Narbonne, France
+      note: Modelling and bioprocesses
+    - year: '2023'
+      event: IMCA seminar (Universidad Nacional de Ingeniería)
+      place: Lima, Peru
+      note: Digital agriculture
+    - year: '2023'
+      event: Laboratoire de Mathématiques d'Avignon
+      place: Avignon, France
+    - year: '2023'
+      event: ANR StarWine technical seminar for private partners, Pech Rouge (INRAE)
+      place: Gruissan, France
+    - year: '2023'
+      event: MISTEA (INRAE), visit of the MathNum department
+      place: Montpellier, France
+    - year: '2022'
+      event: MAC team seminar (LAAS-CNRS)
+      place: Toulouse, France
+    - year: '2022'
+      event: MISTEA seminars (INRAE)
+      place: Montpellier and Juvignac, France
+    - year: '2021'
+      event: Journée contrôle optimal et applications (FRUMAM)
+      place: Avignon, France
+    - year: '2018'
+      event: ANR Maximic seminar (Inria Grenoble / LIPhy)
+      place: Grenoble, France
+    - year: '2018'
+      event: DataMove team seminar (Inria Grenoble / LIG)
+      place: Grenoble, France
+    - year: 2018–22
+      event: Biocore and McTao team seminars (Inria Sophia Antipolis)
+      place: Côte d'Azur, France

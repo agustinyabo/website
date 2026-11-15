@@ -5,5 +5,5 @@ permalink: /research/
 title: research
 nav: true
 nav_order: 2
-description: Research projects, supervision, code and talks.
+description: Main research axes, with key publications, code and projects.
 ---
