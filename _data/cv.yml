@@ -53,7 +53,7 @@
       year: 2018
       location: Grenoble, France
       institution: Inria Grenoble - Rhône Alpes
-      department: "Ctrl-A team · Supervision: Eric Rutten"
+      department: "Ctrl-A team · Supervision: Eric Rutten and Bogdan Robu"
       maindescription: "<b>Internship:</b> <i>A control-theory approach for cluster autonomic management: maximizing usage while avoiding overload</i>"
       description:
         - Design and validation of control-oriented system models for autonomic computing and self-management of High Performance Computing systems.

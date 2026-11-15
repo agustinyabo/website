@@ -6,6 +6,8 @@
 # match the entry below.
 #
 # To add someone: copy an entry, fill `first`, `last` and `url`.
+# `aliases` (optional) lists other exact spellings to link on the cv,
+# research and activities pages, e.g. with a middle initial.
 # Entries without `url` are ignored.
 
 - first: Jean-Luc
@@ -32,6 +34,10 @@
   last: Mairet
   url: https://annuaire.ifremer.fr/cv/23648/ # Ifremer staff directory
 
+- first: Martin
+  last: Fleurial
+  url: https://martin-fl.github.io/ # personal page
+
 - first: Ludovic
   last: Sacchelli
   url: https://sacchelli.github.io/ # personal page
@@ -43,6 +49,15 @@
 - first: Walid
   last: Djema
   url: https://waliddjema.wordpress.com/ # personal page
+
+- first: Bogdan
+  last: Robu
+  url: https://www.gipsa-lab.grenoble-inp.fr/~bogdan.robu/ # personal page
+
+- first: Damián
+  last: Oliva
+  aliases: [Damián E. Oliva]
+  url: https://bicyt.conicet.gov.ar/fichas/p/damian-ernesto-oliva # CONICET profile
 
 - first: Mohab
   last: Safey El Din
@@ -60,8 +75,4 @@
 #
 # - first: Javier
 #   last: Innerarity Imizcoz
-#   url:
-#
-# - first: Damián
-#   last: Oliva
 #   url:

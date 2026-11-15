@@ -623,3 +623,15 @@ html[data-theme='dark'] .publications .periodical.cv-muted * {
     margin-right: 0.15rem;
   }
 }
+
+// Collaborator links in cv / research / activities (auto-linked by the
+// link-collaborators plugin): same subtle style as on the publications page
+.cv a.collaborator {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px dotted var(--global-text-color-light);
+  &:hover {
+    color: var(--global-theme-color);
+    border-bottom-color: var(--global-theme-color);
+  }
+}
