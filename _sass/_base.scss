@@ -1066,3 +1066,19 @@ nav[data-toggle="toc"] {
     padding-top: 0.5rem;
   }
 }
+
+// Collaborator links in the publications list: subtle, not theme-colored
+// Both use a bottom border (sits lower than text-decoration) so they line up.
+.publications .author u {
+  text-decoration: none;
+  border-bottom: 1px solid var(--global-text-color-light);
+}
+.publications .author a.collaborator {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px dotted var(--global-text-color-light);
+  &:hover {
+    color: var(--global-theme-color);
+    border-bottom-color: var(--global-theme-color);
+  }
+}

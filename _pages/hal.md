@@ -12,6 +12,31 @@ nav_order: 3
 <div class="publications" id="hal-publications-container">Loading publications...</div>
 
 <script>
+// Collaborators from _data/collaborators.yml (injected at build time)
+var COLLABORATORS = {{ site.data.collaborators | jsonify }} || [];
+
+function normalizeName(text) {
+  return (text || "")
+    .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase().replace(/[.\-'’]/g, " ").replace(/\s+/g, " ").trim();
+}
+
+function collaboratorKey(first, last) {
+  var f = normalizeName(first);
+  return normalizeName(last) + "|" + (f ? f.charAt(0) : "");
+}
+
+var COLLABORATOR_URLS = {};
+COLLABORATORS.forEach(function(c) {
+  if (c && c.url && c.last) COLLABORATOR_URLS[collaboratorKey(c.first, c.last)] = c.url;
+});
+
+function linkCollaborator(displayName, first, last) {
+  var url = COLLABORATOR_URLS[collaboratorKey(first, last)];
+  if (!url) return displayName;
+  return '<a class="collaborator" href="' + url + '" target="_blank" rel="noopener noreferrer">' + displayName + '</a>';
+}
+
 function cleanName(text) {
   return text
     .replace(/Agustín Gabriel Yabo/g, "Agustín G. Yabo")
@@ -46,7 +71,13 @@ function parseTEI(xmlText) {
       var name = Array.prototype.slice.call(pers.children).map(function(c) {
         return c.textContent.trim();
       }).join(" ");
-      return cleanName(name.trim());
+      var first = Array.prototype.slice.call(pers.getElementsByTagNameNS(NS, "forename")).map(function(c) {
+        return c.textContent.trim();
+      }).join(" ");
+      var lastNode = pers.getElementsByTagNameNS(NS, "surname")[0];
+      var last = lastNode ? lastNode.textContent.trim() : "";
+      var cleaned = cleanName(name.trim());
+      return cleaned.indexOf("<u>") === -1 ? linkCollaborator(cleaned, first, last) : cleaned;
     });
     var authors = deduplicateAuthors(rawAuthors).join(", ");
 

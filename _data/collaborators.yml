@@ -1,0 +1,67 @@
+# Collaborators linked from the publications page (/hal/).
+#
+# When an author name coming from HAL matches an entry here, it is shown as a
+# link to `url`. Matching uses the last name + first initial, ignoring accents,
+# case, dots and hyphens, so "J.-B. Caillau" and "Jean-Baptiste Caillau" both
+# match the entry below.
+#
+# To add someone: copy an entry, fill `first`, `last` and `url`.
+# Entries without `url` are ignored.
+
+- first: Jean-Luc
+  last: Gouzé
+  url: https://team.inria.fr/macbes/ # team page (Macbes, Inria)
+
+- first: Jean-Baptiste
+  last: Caillau
+  url: https://caillau.perso.math.cnrs.fr/ # personal page
+
+- first: Céline
+  last: Casenave
+  url: https://mistea.pages-forge.inrae.fr/celinecasenave/ # personal page
+
+- first: Nicolas
+  last: Augier
+  url: https://sites.google.com/view/nicolas-augier-cmap # personal page
+
+- first: Hidde
+  last: de Jong
+  url: https://team.inria.fr/microcosme/hidde-de-jong/ # personal page (Microcosme, Inria)
+
+- first: Francis
+  last: Mairet
+  url: https://annuaire.ifremer.fr/cv/23648/ # Ifremer staff directory
+
+- first: Ludovic
+  last: Sacchelli
+  url: https://sacchelli.github.io/ # personal page
+
+- first: Eric
+  last: Rutten
+  url: https://team.inria.fr/ctrl-a/members/eric-rutten/ # personal page (Ctrl-A, Inria)
+
+- first: Walid
+  last: Djema
+  url: https://waliddjema.wordpress.com/ # personal page
+
+- first: Mohab
+  last: Safey El Din
+  url: https://safey.perso.lip6.fr/ # personal page
+
+- first: Jean-Roch
+  last: Mouret
+  url: https://eng-spo.montpellier.hub.inrae.fr/ # lab page (UMR SPO), not a personal page
+
+# Frequent co-authors with no page found yet:
+#
+# - first: William
+#   last: Dangelser
+#   url:
+#
+# - first: Javier
+#   last: Innerarity Imizcoz
+#   url:
+#
+# - first: Damián
+#   last: Oliva
+#   url:
