@@ -132,6 +132,7 @@ function parseTEI(xmlText) {
     }
 
     var journal = "";
+    var place = "";
     if (
       rawType === "Conference papers" ||
       type.indexOf("Conference") === 0 ||
@@ -144,7 +145,13 @@ function parseTEI(xmlText) {
       var confName = confNameNode ? confNameNode.textContent.trim() : "";
       var city = cityNode ? cityNode.textContent.trim() : "";
       var country = countryNode ? countryNode.textContent.trim() : "";
-      journal = [confName, [city, country].filter(Boolean).join(", ")].filter(Boolean).join(", ");
+      // HAL stores country names in French; use the ISO code to get the English name
+      var countryKey = countryNode ? countryNode.getAttribute("key") : "";
+      if (countryKey && typeof Intl !== "undefined" && Intl.DisplayNames) {
+        try { country = new Intl.DisplayNames(["en"], { type: "region" }).of(countryKey.toUpperCase()) || country; } catch (err) {}
+      }
+      journal = confName;
+      place = [city, country].filter(Boolean).join(", ");
       if (startNode) {
         year = startNode.textContent.trim().slice(0, 4);
       }
@@ -167,6 +174,7 @@ function parseTEI(xmlText) {
       title: title,
       authors: authors,
       journal: journal,
+      place: place,
       year: year,
       uri: uri,
       pdf: pdf,
@@ -234,10 +242,11 @@ fetch("https://api.archives-ouvertes.fr/search/hal/?wt=xml-tei&rows=1000&sort=pu
             <div class="title" style="font-weight: bold;">${e.title}</div>
             <div class="author" style="margin-top: 0.3em;">${e.authors}</div>
             ${(e.journal || e.year) ? `
-              <div class="periodical" style="margin-top: 0.3em;">
+              <div class="periodical cv-muted" style="margin-top: 0.3em;">
                 ${e.journal ? `<span style="font-style: italic;">${e.journal}</span>${e.year ? ", " + e.year : ""}` : (e.year || "")}
               </div>
             ` : ""}
+            ${e.place ? `<div class="pub-place"><i class="fa-solid fa-location-dot"></i> ${e.place}</div>` : ""}
             ${e.doi ? `<div class="doi" style="margin-top: 0.3em;"><a href="https://doi.org/${e.doi}" target="_blank">https://doi.org/${e.doi}</a></div>` : ""}
            <div class="links" style="margin-top: 0.3em;">
 			  <a href="${e.uri}" class="btn btn-sm me-2" role="button" target="_blank">

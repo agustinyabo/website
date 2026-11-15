@@ -9,6 +9,13 @@
         <span class="cv-talk-event">{{ item.event }}</span>
         {% if item.invited %}<span class="cv-talk-tag">invited</span>{% endif %}
         {% if item.note %}<span class="cv-talk-note">· {{ item.note }}</span>{% endif %}
+        {% if item.title %}
+          {% if item.title.size > 1 and item.title.first.size > 1 %}
+          <ul class="cv-talk-titles">{% for t in item.title %}<li>{{ t }}</li>{% endfor %}</ul>
+          {% else %}
+          <span class="cv-talk-title">{{ item.title | join: "" }}</span>
+          {% endif %}
+        {% endif %}
         <span class="cv-talk-place"><i class="fa-solid fa-location-dot"></i> {{ item.place }}</span>
       </span>
     </li>

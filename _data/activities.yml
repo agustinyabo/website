@@ -45,38 +45,65 @@
     - year: '2026'
       event: 23rd IFAC World Congress
       place: Busan, South Korea
+      title:
+      - Can optimal control explain the microbial heat-shock response? A bilevel optimization approach
     - year: '2025'
       event: 64th IEEE Conference on Decision and Control (CDC)
       place: Rio de Janeiro, Brazil
+      title:
+      - 'On the optimal control of birhythmic oscillatory PWA systems: an application to the p53-Mdm2 network'
     - year: '2025'
       event: Biennale Française des Mathématiques Appliquées et Industrielles (SMAI 2025)
       place: Carcans-Maubuisson, France
       invited: true
+      title:
+      - Understanding, modeling and controlling wine fermentation
     - year: '2024'
       event: European Control Conference (ECC)
       place: Stockholm, Sweden
+      title:
+      - 'State estimation in alcoholic fermentation models: a case-study in wine-making conditions'
     - year: '2023'
       event: 22nd IFAC World Congress
       place: Yokohama, Japan
+      title:
+      - Predicting microbial cell composition and diauxic growth as optimal control strategies
+      - 'Aroma synthesis and energy consumption in wine fermentation: a multiobjective optimization approach'
     - year: '2022'
       event: European Control Conference (ECC)
       place: London, United Kingdom
+      title:
+      - Optimal allocation of bacterial resources in fed-batch reactors
     - year: '2021'
       event: 7th IFAC Conference on Analysis and Design of Hybrid Systems (ADHS)
       place: Brussels, Belgium
-      note: two presentations
+      title:
+      - 'Time-optimal control of piecewise affine bistable gene-regulatory networks: preliminary results'
     - year: '2020'
       event: 21st IFAC World Congress
-      place: Berlin / virtual
+      place: Berlin, Germany (virtual)
+      title:
+      - 'Optimizing bacterial resource allocation: metabolite production in continuous bioreactors'
     - year: '2019'
       event: 58th IEEE Conference on Decision and Control (CDC)
       place: Nice, France
+      title:
+      - Singular regimes for the maximization of metabolite production
     - year: '2019'
       event: 19th French-German-Swiss Conference on Optimization (FGS'2019)
       place: Nice, France
+      title:
+      - 'Bacterial growth strategies as optimal control problems: maximizing metabolite production'
     - year: '2016'
       event: XXV Congreso Argentino de Control Automático (AADECA 2016)
       place: Buenos Aires, Argentina
+      title:
+      - Vehicle classification and speed estimation using computer vision techniques
+    - year: '2015'
+      event: Argentine Symposium on Artificial Intelligence (ASAI 2015), JAIIO 44
+      place: Rosario, Argentina
+      title:
+      - Implementación de un sistema para la medición del flujo de tránsito y detección de embotellamientos en autopistas
   - title: Seminars and workshops
     items:
     - year: '2026'
@@ -86,15 +113,12 @@
     - year: '2025'
       event: Journée Microcosmes – MISTEA
       place: Montpellier, France
-      note: Single-cell models
     - year: '2024'
       event: LBE Narbonne seminar (INRAE)
       place: Narbonne, France
-      note: Modelling and bioprocesses
     - year: '2023'
       event: IMCA seminar (Universidad Nacional de Ingeniería)
       place: Lima, Peru
-      note: Digital agriculture
     - year: '2023'
       event: Laboratoire de Mathématiques d'Avignon
       place: Avignon, France

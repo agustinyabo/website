@@ -37,7 +37,7 @@
       department: "MISTEA unit · Supervision: Céline Casenave"
       maindescription: "<b>Project:</b> <i>Control of the aroma synthesis during wine fermentation process</i>"
       description:
-        - Investigate novel real-time control strategies in wine fermentation for improving aroma composition and reducing energy consumption.
+        - Real-time control strategies in wine fermentation for improving aroma composition and reducing energy consumption.
         - Control-oriented modeling of aroma synthesis in fermentation processes from experimental data.
 
     - title: PhD candidate
@@ -48,8 +48,6 @@
       maindescription: "<b>Thesis:</b> <i>Optimal resource allocation in bacterial growth: theoretical study and applications to metabolite production</i>"
       description:
         - Optimal control strategies for synthesizing artificial metabolites in bacteria through growth rate regulation, and model-predictive control loops for its production in industrial setups.
-        - Different applications of computer science and systems theory to biological problems.
-        - "Teaching assistant (TD) in Statistics and R (MAM3) and Time series (MAM4), Applied mathematics and modeling engineering degree, Polytech Nice Sophia."
 
     - title: Master's intern
       year: 2018
@@ -59,7 +57,7 @@
       maindescription: "<b>Internship:</b> <i>A control-theory approach for cluster autonomic management: maximizing usage while avoiding overload</i>"
       description:
         - Design and validation of control-oriented system models for autonomic computing and self-management of High Performance Computing systems.
-        - Novel control strategies for autonomic resource management through optimal and predictive control approaches in real grid computing systems.
+        - Control strategies for autonomic resource management through optimal and predictive control approaches in real grid computing systems.
 
     - title: Research assistant
       year: 2014 – 2017
@@ -68,10 +66,9 @@
       department: "Science & Technology Department · Supervision: Damián E. Oliva"
       maindescription: "<b>Projects:</b>"
       description:
-        - Real-time computer vision algorithms in Python for vehicle tracking, measuring traffic flow parameters and detecting traffic jams.
+        - Real-time computer vision algorithms for vehicle tracking, measuring traffic flow parameters and detecting traffic jams.
         - Machine learning techniques for vehicle classification and statistical analysis of traffic flow.
         - Dynamical modeling and numerical simulation of arthropods' visual motion-sensitive neurons for studying and controlling their visuomotor behaviors.
-        - Teaching assistant in Neural Networks and Control Systems courses.
 
 - title: Industry experience
   type: time_table
@@ -81,27 +78,21 @@
       location: Buenos Aires, Argentina
       institution: G&L Group S.A.
       department: R&D Department
-      description:
-        - Provided IT solutions (e.g. machine learning, computer vision, automation, control systems and IT infrastructure) and consulting services to companies and clients.
-        - Participated in domestic non-profit technological projects in cooperation with the Ministry of Science, Technology and Productive Innovation (Argentina).
+      maindescription: R&D projects in IT, computer vision, machine learning and automation for industrial clients.
 
     - title: Industrial Automation Engineer
       year: 2013 – 2014
       location: Buenos Aires, Argentina
       institution: Secin S.A.
       department: Automation Department
-      description:
-        - Developed, implemented, tested and troubleshooted automation systems and control loops through Siemens programmable controllers.
-        - Acquired an overall understanding of manufacturing processes, as well as industrial instrumentation equipment.
+      maindescription: Automation systems and control loops on Siemens programmable controllers.
 
     - title: Platform Analyst
       year: 2012 – 2013
       location: Buenos Aires, Argentina
       institution: ICBC Argentina S.A.
       department: IT Department
-      description:
-        - Designed and programmed algorithms and scripts for automating IT processes.
-        - Acquired general knowledge of big-scale IT infrastructures, and implemented automated tasks on repetitive processes.
+      maindescription: Scripts for automating IT processes.
 
 - title: Teaching
   type: time_table
@@ -124,34 +115,34 @@
   contents:
     - title: EDSTIC PhD thesis prize
       year: 2021
-      maindescription: "2 awards per year to outstanding PhD theses from the ATSI (Automation, Signal and Image Processing) discipline. Granted by Université Côte d'Azur (Nice, France)."
+      maindescription: "2 awards per year to outstanding PhD theses from the ATSI (Automation, Signal and Image Processing) discipline.<br><span class=\"cv-muted\">Granted by Université Côte d'Azur (Nice, France).</span>"
     - title: EDSTIC PhD funding
       year: 2018
-      maindescription: "PhD funding (10 grants per year). Granted by Université Côte d'Azur (Nice, France)."
+      maindescription: "PhD funding (10 grants per year).<br><span class=\"cv-muted\">Granted by Université Côte d'Azur (Nice, France).</span>"
     - title: CORDI-S PhD funding
       year: 2018
-      maindescription: "PhD funding (4 grants per year). Granted by Inria Grenoble - Rhône-Alpes (Grenoble, France)."
+      maindescription: "PhD funding (4 grants per year).<br><span class=\"cv-muted\">Granted by Inria Grenoble - Rhône-Alpes (Grenoble, France).</span>"
     - title: LabEx PERSYVAL-Lab
       year: 2017
-      maindescription: "Master M2 scholarship program (10 grants per year). Granted by LabEx PERSYVAL-Lab and Université Grenoble Alpes (Grenoble, France)."
+      maindescription: "Master M2 scholarship program (10 grants per year).<br><span class=\"cv-muted\">Granted by LabEx PERSYVAL-Lab and Université Grenoble Alpes (Grenoble, France).</span>"
     - title: University and Transport
       year: 2016
-      maindescription: "Merit-based research scholarship for research assistants. Granted by the Ministry of Education and National University of Quilmes (Buenos Aires, Argentina)."
+      maindescription: "Merit-based research scholarship for research assistants.<br><span class=\"cv-muted\">Granted by the Ministry of Education and National University of Quilmes (Buenos Aires, Argentina).</span>"
     - title: SAI Research Subsidy Program
       year: 2015
-      maindescription: "Research support subsidy for undergraduate students. Granted by National University of Quilmes (Buenos Aires, Argentina)."
+      maindescription: "Research support subsidy for undergraduate students.<br><span class=\"cv-muted\">Granted by National University of Quilmes (Buenos Aires, Argentina).</span>"
     - title: Santander Ibero-American Grants
       year: 2014
-      maindescription: "Exchange scholarship for a 1 semester stay in Spain. Granted by Santander Bank (Spain) and National University of Quilmes (Buenos Aires, Argentina)."
+      maindescription: "Exchange scholarship for a 1 semester stay in Spain.<br><span class=\"cv-muted\">Granted by Santander Bank (Spain) and National University of Quilmes (Buenos Aires, Argentina).</span>"
     - title: CONAHEC Student Exchange Program
       year: 2013
-      maindescription: "Short-stay exchange scholarship. Granted by CONAHEC and National University of Quilmes (Buenos Aires, Argentina)."
+      maindescription: "Short-stay exchange scholarship.<br><span class=\"cv-muted\">Granted by CONAHEC and National University of Quilmes (Buenos Aires, Argentina).</span>"
 
 - title: Languages
   type: map
   contents:
     - name: English
-      value: Fluent (IELTS Band 7.5)
+      value: Fluent
     - name: Spanish
       value: Mother tongue
     - name: French

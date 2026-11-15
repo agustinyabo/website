@@ -397,6 +397,26 @@ ul.timeline li::before {
     color: #fff;
     vertical-align: middle;
   }
+  .cv-talk-title,
+  .cv-talk-titles {
+    display: block;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 0.9rem;
+    color: var(--global-text-color-light);
+  }
+  .cv-talk-titles {
+    margin: 0;
+    padding-left: 1.1rem;
+    list-style: disc;
+    li {
+      padding: 0;
+      border: none;
+      display: list-item;
+      color: var(--global-text-color-light);
+      font-weight: 300;
+    }
+  }
   .cv-talk-place {
     display: block;
     font-size: 0.8rem;
@@ -571,4 +591,35 @@ html[data-theme='dark'] {
   font-size: 1.05rem;
   font-weight: 300;
   margin-bottom: 1.5rem;
+}
+
+// Secondary text (e.g. "Granted by ..." in grants): same grey italic as talk titles
+.cv-muted {
+  font-style: italic;
+  font-weight: 300;
+  font-size: 0.9rem;
+  color: var(--global-text-color-light);
+}
+// Publications: journal a bit darker and at author size; DOI smaller
+.publications .periodical.cv-muted {
+  font-size: inherit;
+}
+.publications .periodical.cv-muted,
+.publications .periodical.cv-muted * {
+  color: #5c5c63;
+}
+html[data-theme='dark'] .publications .periodical.cv-muted,
+html[data-theme='dark'] .publications .periodical.cv-muted * {
+  color: #c6c6cd;
+}
+.publications .doi {
+  font-size: 0.9rem;
+}
+.publications .pub-place {
+  margin-top: 0.15em;
+  font-size: 0.85rem;
+  color: var(--global-text-color-light);
+  i {
+    margin-right: 0.15rem;
+  }
 }
